@@ -18,12 +18,12 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          echo "Host *\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+          echo -e "Host *\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
 
       # 1. Deploy Django server
       - name: Upload Django code
         run: |
-          rsync -avz \
+          rsync -avz -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
             --exclude='venv' \
             --exclude='__pycache__' \
             --exclude='.git' \
@@ -32,13 +32,14 @@ jobs:
       # 2. Restart Django backend
       - name: Restart Backend
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-            cd /home/opc/peers/server &&
-            source venv/bin/activate &&
-            pip install -r requirements.txt &&
-            python manage.py migrate &&
-            sudo systemctl restart peers-backend
-          "
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+              cd /home/opc/peers/server &&
+              source venv/bin/activate &&
+              pip install -r requirements.txt &&
+              python manage.py migrate &&
+              sudo systemctl restart peers-backend
+            "
 
       # 3. Build Frontend
       - name: Build React App
@@ -50,6 +51,6 @@ jobs:
       # 4. Upload frontend dist
       - name: Deploy React dist
         run: |
-          rsync -avz \
+          rsync -avz -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
             --delete \
             ./client/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/opc/peers/client/
