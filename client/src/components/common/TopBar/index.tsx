@@ -2,7 +2,7 @@ import { Avatar, IconButton } from "@mui/material";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { TopBarContainer, UserBox } from "./index.styles";
 
-const TopBar = ({ hideOnMobile = false }: { hideOnMobile?: boolean }) => {
+const TopBar = ({ }: { hideOnMobile?: boolean }) => {
   return (
     <TopBarContainer hideOnMobile={true}>
       <IconButton>

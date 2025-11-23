@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
   Typography,
@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import { MyEventsContainer, SectionBox } from "./index.styles";
 
-import { getEvents, getEvent } from "@api/events";
+import { getEvents } from "@api/events";
 
 const MyEvents = () => {
   const userId = 1;
