@@ -1,38 +1,41 @@
-# Run Django Server
-## For windows
+# Backend Setup Guide (Django)
+This guide explains how to create and activate a Python virtual environment and run the Django backend server.
 
-### PowerShell
-.\venv\Scripts\activate
+## 1. Python Version
+This project uses Python 3.11.x.
+Make sure Python 3.11 is installed on your system.
 
-### CMD
-venv\Scripts\activate.bat
+## 2. Backend Directory
+All backend files are located in:
+Peers/server/
+Move into this directory before running commands.
+cd Peers/server/
 
-### Run server
-..Peers\server\python manage.py runserver
-
-
-
-
-# How to install python virtual environment
-### 1. Project Python Version
-Python 3.11.0
-
-### 2. Check the requirements.txt file from the server folder
-Peers\server\requirements.txt
-
-### 3. Enter the route using CMD or Terminal
-..Peers\server\
-
-### 4. Enter the command
+## 3. Virtual Environment Setup
+### Create the virtual environment
 python -m venv venv
 
-### 5. Execute python virtual environment on PowerShell
+### Activate (Windows PowerShell)
 .\venv\Scripts\activate
 
-### 6. Execute python virtual environment on CMD
+### Activate (Windows CMD)
 venv\Scripts\activate.bat
 
-### 7. Check the console
-(venv) C:\.\.\>
+### Check activation
+You should see the prefix:
+(venv) C:\...\>
 
-### 8. Install python library
+## 4. Install Required Libraries
+pip install -r requirements.txt
+
+### The file is located at:
+Peers/server/requirements.txt
+
+## 5. Run the Django Server
+python manage.py runserver
+
+### The server will run at:
+http://127.0.0.1:8000/
+
+## 6. Deactivate Virtual Environment
+deactivate
