@@ -1,0 +1,55 @@
+name: Deploy to Oracle
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          echo "Host *\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+
+      # 1. Deploy Django server
+      - name: Upload Django code
+        run: |
+          rsync -avz \
+            --exclude='venv' \
+            --exclude='__pycache__' \
+            --exclude='.git' \
+            ./server/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/opc/peers/server/
+
+      # 2. Restart Django backend
+      - name: Restart Backend
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+            cd /home/opc/peers/server &&
+            source venv/bin/activate &&
+            pip install -r requirements.txt &&
+            python manage.py migrate &&
+            sudo systemctl restart peers-backend
+          "
+
+      # 3. Build Frontend
+      - name: Build React App
+        run: |
+          cd client
+          npm install
+          npm run build
+
+      # 4. Upload frontend dist
+      - name: Deploy React dist
+        run: |
+          rsync -avz \
+            --delete \
+            ./client/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/opc/peers/client/
