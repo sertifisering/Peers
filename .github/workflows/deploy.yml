@@ -24,18 +24,17 @@ jobs:
       - name: Upload Django code
         run: |
           rsync -avz -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
-            --exclude='venv' \
             --exclude='__pycache__' \
             --exclude='.git' \
             ./server/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/opc/peers/server/
 
-      # 2. Restart Django backend
+      # 2. Restart Backend
       - name: Restart Backend
         run: |
           ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
               cd /home/opc/peers/server &&
-              source venv/bin/activate &&
+              source ../venv/bin/activate &&
               pip install -r requirements.txt &&
               python manage.py migrate &&
               sudo systemctl restart peers-backend
