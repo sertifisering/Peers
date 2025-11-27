@@ -32,7 +32,11 @@ SECRET_KEY = 'django-insecure-^f80_^*vnve=rv&2i&9#(m=7fdrqplzai9hn@$8u+eov54o0&@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "peerstest.ddns.net",
+    "localhost",
+    "127.0.0.1"    
+]
 
 
 # Application definition
