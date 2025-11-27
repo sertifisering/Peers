@@ -21,6 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/events/", include("eventapp.urls")),
     path("api/", include("chatapp.urls")),
-
 ]
 
