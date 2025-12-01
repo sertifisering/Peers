@@ -1,13 +1,6 @@
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import { RecoilRoot } from "recoil";
-import "./index.css";
-import App from "./App.tsx";
+import App from "./App";
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <RecoilRoot>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </RecoilRoot>
-);
+import "./index.css";
+
+ReactDOM.createRoot(document.getElementById("root")!).render(<App />);
