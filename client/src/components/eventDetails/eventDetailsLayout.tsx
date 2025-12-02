@@ -15,7 +15,7 @@ import { BasicInfoScreen } from "@/components/eventDetails/screens/basicInfoScre
 import { TemplateScreen } from "@/components/eventDetails/screens/templateScreen";
 import { JudgingScreen } from "@/components/eventDetails/screens/judgingScreen";
 import { AthletesScreen } from "@/components/eventDetails/screens/athletesScreen";
-import { ExpertsScreen } from "@/components/eventDetails/screens/expertsSccreen";
+import { ExpertsScreen } from "@/components/eventDetails/screens/expertsScreen";
 import { SponsorsScreen } from "@/components/eventDetails/screens/sponsorScreen";
 import { ReviewScreen } from "@/components/eventDetails/screens/reviewScreen";
 import { Button } from "@/components/ui/button";

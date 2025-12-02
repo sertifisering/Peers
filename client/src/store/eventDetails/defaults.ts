@@ -6,14 +6,14 @@ export const defaultForm: EventDetailsForm = {
   location: "",
   sport: "",
   format: "",
-  startTime: "",
-  endTime: "",
-  endDate: "",
+  start_time: "",
+  end_time: "",
+  end_date: "",
   capacity: 0,
   price: 0,
   organizer: "",
-  contactEmail: "",
-  imageUrl: "",
+  contact_email: "",
+  image_url: "",
 };
 
 export const defaultTemplate: TemplateState = {
