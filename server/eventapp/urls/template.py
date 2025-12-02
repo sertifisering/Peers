@@ -1,7 +1,7 @@
-from django.urls import path
-from eventapp.views import TemplateUpdateAPI
+# from django.urls import path
+# from eventapp.views import TemplateUpdateAPI
 
-urlpatterns = [
-    # Update template data
-    path("update/<int:eventId>/", TemplateUpdateAPI.as_view()),
-]
+# urlpatterns = [
+#     # Update template data
+#     path("update/<int:eventId>/", TemplateUpdateAPI.as_view()),
+# ]
