@@ -18,7 +18,7 @@ export const createStepSlice: StateCreator<EventDetailsState, [], [], Partial<Ev
   prevStep: () => set((st) => ({ step: st.step - 1 })),
 
   resetStepData: (s) =>
-    set((state) => {
+    set(() => {
       switch (s) {
         case 0:
           return { form: { ...defaultForm }, isDirty: true };
