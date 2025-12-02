@@ -23,12 +23,14 @@
     /* Path mapping */
     "baseUrl": "./src", // Base directory for resolving non-relative module names
     "paths": {
-      "@api/*": ["api/*"],
-      "@components/*": ["components/*"],
-      "@layouts/*": ["layouts/*"],
-      "@pages/*": ["pages/*"],      
-      "@utils/*": ["utils/*"],
-      "@hooks/*": ["hooks/*"]
+      "@/*": ["*"],
+      "@/api/*": ["api/*"],
+      "@/assets/*": ["assets/*"],
+      "@/components/*": ["components/*"],
+      "@/layouts/*": ["layouts/*"],
+      "@/pages/*": ["pages/*"],
+      "@/types/*": ["types/*"],
+      "@/store/*": ["store/*"]
     }
   },
   "include": ["src"], // Include files in src directory
