@@ -1,5 +1,5 @@
 import { api } from "@/api/axiosInstance";
-import type { Expert } from "@/store/useEventDetailsStore";
+import type { Expert } from "@/types/expert";
 
 // Expert-related API calls
 export const expertApi = {

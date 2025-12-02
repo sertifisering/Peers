@@ -10,7 +10,6 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 
 import { Layers } from "lucide-react";
-import { ImageWithFallback } from "@/components/imageWithFallback";
 
 export const TemplateScreen = () => {
   const { template, updateTemplateField } = useEventDetailsStore();

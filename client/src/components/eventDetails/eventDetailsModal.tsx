@@ -41,12 +41,6 @@ export const EventDetailsModal = ({ isOpen, onClose, event, onUpdate }: Props) =
     onClose();
   };
 
-  const handleClose = () => {
-    reset();
-    resetDirty();
-    onClose();
-  };
-
   const handleSave = () => {
     if (!event) return;
 

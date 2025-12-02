@@ -1,6 +1,6 @@
 // src/api/athleteApi.ts
 import { api } from "@/api/axiosInstance";
-import type { Athlete } from "@/store/useEventDetailsStore";
+import type { Athlete } from "@/types/athlete";
 
 export const athleteApi = {
   // GET all athletes (global)
