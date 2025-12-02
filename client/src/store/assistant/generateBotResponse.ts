@@ -7,6 +7,8 @@ function getMissing(data: ExtractedData) {
 
 export function generateBotResponse(text: string, d: ExtractedData): string {
   const missing = getMissing(d);
+  // temporary holde text
+  console.log("User input:", text);
 
   // all fields ready
   if (missing.length === 0) {

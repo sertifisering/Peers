@@ -1,4 +1,4 @@
-export const BattlePreview = ({ template }: any) => {
+export const BattlePreview = ({}: any) => {
   return (
     <div className="flex flex-col items-center space-y-4">
       <div className="flex gap-6 items-center">

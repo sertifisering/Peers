@@ -30,6 +30,9 @@ export function EventList() {
   const [receiptEvent, setReceiptEvent] = useState<Event | null>(null);
   const [search, setSearch] = useState("");
 
+  // temporary hold receiptEvent
+  console.log("Receipt Event:", receiptEvent);
+
   // Initial fetch
   useEffect(() => {
     fetchEvents();

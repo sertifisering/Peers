@@ -5,11 +5,9 @@ import { RankingStarPreview } from "./rankingStarPreview";
 import { RankingLikePreview } from "./rankingLikePreview";
 
 import { BattleVsPreview } from "./battleVsPreview";
-import { BattleFinalPreview } from "./battleFinalPreview";
 
 import { PollVotePreview } from "./pollVotePreview";
 import { PollSliderPreview } from "./pollSliderPreview";
-import { PollStarPreview } from "./pollStarPreview";
 
 export const TemplatePreviewRouter = ({ eventFormat, template }: any) => {
   const format = eventFormat || "ranking";
